@@ -1,0 +1,41 @@
+<!-- <input type="text" placeholder="Username" [(ngModel)]="form.username" />
+<input type="text" placeholder="First Name" [(ngModel)]="form.firstname" />
+<input type="text" placeholder="Last Name" [(ngModel)]="form.lastname" />
+<button (click)="insert()">Add</button> -->
+<br />
+<table class="table table-striped">
+    <thead>
+        <!-- <tr>
+            <th>Title</th>
+            <th>City</th>
+            <th>Image</th>
+        </tr> -->
+        <select [(ngModel)]="city">
+          <option *ngFor="let city of cities"
+                value= {{city}}>{{city}}
+          </option>
+        </select>
+
+        <button (click)="deletePosters()">Delete </button>
+
+    </thead>
+    <tbody>
+        <tr *ngFor="let poster of posters | cityfilter:city ">
+            <td> <input [(ngModel)]="poster.delete"  type="checkbox"/> </td>
+            <td>{{ poster.title }}</td>
+            <td>{{ poster.city }}</td>
+            <td>
+            <span *ngIf="poster.section3.minetype == 'image' ">
+                <img style="background-color: #69D8FA;
+                height: 100px; width: 100px; object-fit: cover"
+                src="{{poster.section3.mobileUrl}}"/>
+            </span>
+            <span *ngIf="poster.section3.minetype == 'video' ">
+                <video style="height: 100px; width: 100px; object-fit: cover"
+                controls src="{{poster.section3.fileUrl}}">
+                </video>
+            </span>
+            </td>
+        </tr>
+    </tbody>
+</table>

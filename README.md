@@ -1,2 +1,5 @@
-# PouchDB
-An angular 2 based pouchDB project
+Vinodh
+=========
+
+Angular 2 PouchDB Project
+
